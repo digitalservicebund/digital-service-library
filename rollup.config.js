@@ -1,7 +1,9 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
+import { terser } from "rollup-plugin-terser";
 
 const packageJson = require("./package.json");
 const isProduction = process.env.NODE_ENV === "production";
@@ -33,13 +35,17 @@ export default [
         extract: true,
         minimize: isProduction,
         // modules: true,
+        inject: {
+          insertAt: "top",
+        },
       }),
-      isProduction && (await import("rollup-plugin-terser")).terser(),
+      isProduction && terser(),
     ],
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
+    external: [/\.css$/],
   },
 ];
