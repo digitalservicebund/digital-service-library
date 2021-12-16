@@ -1,0 +1,14 @@
+{
+  "name": "generator-storybook",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "generators"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^5.4.2"
+  }
+}
