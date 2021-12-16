@@ -2,6 +2,11 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['BundesSansWeb', 'Calibri', 'Verdana', 'Arial', 'Helvetica', 'sans-serif'],
+        serif: ['BundesSerifWeb', 'Cambria', 'Georgia', '"Times New Roman"', 'serif'],
+        condensed: ['BundesSansCondWeb', 'Calibri', 'Verdana', 'Arial', 'Helvetica', 'sans-serif'],
+      },
       colors: {
         white: "#fff",
         blue: {
