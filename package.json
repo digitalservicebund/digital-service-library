@@ -11,6 +11,7 @@
   "scripts": {
     "rollup": "rollup -c",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -40,8 +41,10 @@
     "@storybook/manager-webpack5": "^6.4.9",
     "@storybook/react": "^6.4.9",
     "@testing-library/react": "^12.1.2",
+    "@types/enzyme": "^3.10.10",
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.37",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "ansi-styles": "^3.2.1",
     "autoprefixer": "^10.4.0",
     "babel-jest": "^27.4.5",
@@ -56,6 +59,7 @@
     "concat-map": "^0.0.1",
     "csstype": "^3.0.10",
     "deepmerge": "^4.2.2",
+    "enzyme": "^3.11.0",
     "escape-string-regexp": "^1.0.5",
     "estree-walker": "^2.0.2",
     "fs.realpath": "^1.0.0",

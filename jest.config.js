@@ -4,4 +4,5 @@ module.exports = {
   moduleNameMapper: {
     ".(css|less|scss)$": "identity-obj-proxy",
   },
+  setupFiles: ["./enzyme.config.js"],
 };
