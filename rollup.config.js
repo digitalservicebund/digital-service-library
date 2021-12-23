@@ -48,4 +48,8 @@ export default [
     plugins: [dts()],
     external: [/\.css$/],
   },
+  {
+    input: "tailwind.config.js",
+    output: [{ file: "dist/tailwind.config.js" }],
+  },
 ];
