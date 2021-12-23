@@ -16,7 +16,7 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm test
-      - run: NODE_ENV=production npm run rollup
+      - run: NODE_ENV=production npm run build
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
