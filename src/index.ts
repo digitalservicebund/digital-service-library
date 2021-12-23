@@ -1,2 +1,3 @@
+const TailwindConfig = require("../tailwind.config.js");
 export * from "./components";
-export { default as TailwindConfig } from "../tailwind.config.js";
+export { TailwindConfig };
