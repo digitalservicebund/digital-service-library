@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/digitalservice4germany/digital-service-library/blob/main/public/images/logo_200px.jpeg?raw=true" alt="Digital Service 4 Germany Logo"/>
+</p>
+
 # digital-service-library
 
 Component Library for and by DigitalService4Germany
