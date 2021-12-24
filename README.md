@@ -6,13 +6,24 @@
 
 Component Library for and by DigitalService4Germany
 
-[![version](https://img.shields.io/npm/v/@digitalservice4germany/digital-service-library.svg?style=flat-square)](https://www.npmjs.com/package/@digitalservice4germany/digital-service-library)
-[![MIT License](https://img.shields.io/npm/l/starwars-names.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![Documentation](https://img.shields.io/badge/Documentation-blue.svg)](https://digitalservice4germany.github.io/digital-service-library/?path=/story/docs-readme--page)
+[![version](https://img.shields.io/npm/v/@digitalservice4germany/digital-service-library.svg)](https://www.npmjs.com/package/@digitalservice4germany/digital-service-library)
+[![Issues](https://img.shields.io/github/issues/digitalservice4germany/digital-service-library)](https://github.com/digitalservice4germany/digital-service-library/issues)
+[![MIT License](https://img.shields.io/npm/l/starwars-names.svg)](http://opensource.org/licenses/MIT)
 
 ## Installation
 
 ```
 npm install --save @digitalservice4germany/digital-service-library
+```
+
+## Usage
+
+### React
+
+```js
+import { Button } from "@digitalservice4germany/digital-service-library";
+import "@ckaatz/test-kit/dist/cjs/index.css";
 ```
 
 ## Yeoman Generator
