@@ -6,6 +6,15 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     {
+      name: "@storybook/addon-docs",
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null,
+        transcludeMarkdown: true,
+      },
+    },
+    {
       name: "@storybook/addon-postcss",
       options: {
         postcssLoaderOptions: {
