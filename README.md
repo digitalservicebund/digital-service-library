@@ -23,7 +23,35 @@ npm install --save @digitalservice4germany/digital-service-library
 
 ```js
 import { Button } from "@digitalservice4germany/digital-service-library";
-import "@ckaatz/test-kit/dist/cjs/index.css";
+// it is enough to add the css file only once in your app.jsx
+import "@digitalservice4germany/digital-service-library/index.css";
+```
+
+### Remix
+
+You can either use your own tailwind configuration or use the one we ship with the component library.
+
+Just add the css in your root.tsx file:
+
+```js
+import type { LinksFunction } from "remix";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: "https://unpkg.com/@digitalservice4germany/digital-service-library@latest/dist/cjs/index.css",
+    },
+  ];
+};
+```
+
+Then you can use the styled components as usual in your code.
+
+```js
+import { Button } from "@digitalservice4germany/digital-service-library";
+
+<Button label="Hello Button" />;
 ```
 
 ## Yeoman Generator
