@@ -6,5 +6,5 @@ export default create({
   brandTitle: "Digital Service Library",
   brandUrl: "https://digitalservice4germany.com/",
   brandImage:
-    "https://digitalservice4germany.org/assets/digitalservice4germany-logo-black.svg",
+    "https://raw.githubusercontent.com/digitalservice4germany/digital-service-library/main/public/images/logo-black.svg",
 });
