@@ -22,16 +22,11 @@ Basic.parameters = {
   docs: {
     source: {
       code: `
-<Layout>
-  <div className="navigation">
-    <ul>
-      <li>Item 1</li>
-    </ul>
-  </div>
+<MainWrapper>
   <Main>
     <h1>Content</h1>
   </Main>
-</Layout>`,
+</MainWrapper>`,
     },
   },
 };

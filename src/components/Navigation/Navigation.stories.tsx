@@ -27,13 +27,14 @@ Basic.parameters = {
     source: {
       code: `
 <Layout>
-  <div className="navigation">
+  <Navigation>
     <ul>
       <li>Item 1</li>
+      <li>Item 2</li>
     </ul>
-  </div>
+  </Navigation>
   <Main>
-    <h1>Content</h1>
+    <p>Hello</p>
   </Main>
 </Layout>`,
     },

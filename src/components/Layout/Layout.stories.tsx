@@ -1,7 +1,8 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import "../../index.css";
 import Layout from "./Layout";
-import Main from "../Main";
+import Main, { MainWrapper } from "../Main";
 import Navigation from "../Navigation";
 import Footer from "../Footer";
 
@@ -11,19 +12,21 @@ export default {
 } as ComponentMeta<typeof Layout>;
 
 const Template: ComponentStory<typeof Layout> = () => (
-  <div>
+  <div style={{ minHeight: "400px" }}>
     <Layout>
       <Navigation>
         <ul>
           <li>Nav Item</li>
         </ul>
       </Navigation>
-      <Main>
-        <p>Main Content</p>
-      </Main>
-      <Footer>
-        <p>Footer</p>
-      </Footer>
+      <MainWrapper>
+        <Main>
+          <p>Main Content</p>
+        </Main>
+        <Footer>
+          <p>Footer</p>
+        </Footer>
+      </MainWrapper>
     </Layout>
   </div>
 );
@@ -33,18 +36,24 @@ Basic.args = {
   children: [<p>Item 1</p>, <p>Item 2</p>],
 };
 Basic.parameters = {
+  controls: { hideNoControlsWarning: true },
   docs: {
     source: {
       code: `
 <Layout>
-  <div className="navigation">
+  <Navigation>
     <ul>
-      <li>Item 1</li>
+      <li>Nav Item</li>
     </ul>
-  </div>
-  <div className="content">
-    <h1>Content</h1>
-  </div>
+  </Navigation>
+  <MainWrapper>
+    <Main>
+      <p>Main Content</p>
+    </Main>
+    <Footer>
+      <p>Footer</p>
+    </Footer>
+  </MainWrapper>
 </Layout>`,
     },
   },

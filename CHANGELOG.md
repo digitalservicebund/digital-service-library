@@ -4,6 +4,11 @@
 
 Features:
 
+- Layout patterns added:
+  - Layout
+  - Navigation
+  - Main + MainWrapper
+  - Footer
 - documentation improvements
 
 ## 0.0.9

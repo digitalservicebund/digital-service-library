@@ -11,9 +11,7 @@ export interface LayoutProps {
 const Layout = (props: LayoutProps) => {
   return (
     <div className="max-w-full w-full flex flex-col">
-      <div className="flex flex-1 flex-col">
-        <div className="flex flex-1">{props.children}</div>
-      </div>
+      <div className="flex flex-1">{props.children}</div>
     </div>
   );
 };
