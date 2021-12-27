@@ -2,12 +2,22 @@
   "name": "@digitalservice4germany/digital-service-library",
   "version": "0.0.9",
   "description": "Component Library for and by DigitalService4Germany",
-  "author": "Christian Kaatz <christian.kaatz@digitalservice.bund.de>",
+  "contributors": [
+    {
+      "name": "Christian Kaatz",
+      "email": "christian.kaatz@digitalservice.bund.de"
+    },
+    {
+      "name": "Joschka de Cuveland",
+      "email": "joschka.decuveland@digitalservice.bund.de"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:digitalservice4germany/digital-service-library.git"
   },
+  "homepage": "https://digitalservice4germany.github.io/digital-service-library",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
