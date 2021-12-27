@@ -9,9 +9,7 @@ export default {
 } as ComponentMeta<typeof Main>;
 
 const Template: ComponentStory<typeof Main> = (args) => (
-  <Layout>
-    <Main>{args.children}</Main>
-  </Layout>
+  <Main>{args.children}</Main>
 );
 
 export const Basic = Template.bind({});
@@ -22,11 +20,9 @@ Basic.parameters = {
   docs: {
     source: {
       code: `
-<MainWrapper>
-  <Main>
-    <h1>Content</h1>
-  </Main>
-</MainWrapper>`,
+<Main>
+  <h1>Content</h1>
+</Main>`,
     },
   },
 };

@@ -1,1 +1,1 @@
-export { default, MainWrapper } from "./Main";
+export { default } from "./Main";

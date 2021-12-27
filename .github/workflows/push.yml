@@ -9,6 +9,7 @@ on:
 
 jobs:
   deploy:
+    timeout-minutes: 5
     runs-on: ubuntu-20.04
     permissions:
       contents: write
@@ -27,10 +28,12 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm ci
+      - name: Install node modules
+        run: npm ci
       - name: Run Unit Tests
         run: npm test
-      - run: npm run build-storybook
+      - name: Build storybook
+        run: npm run build-storybook
       - name: Deploy
         # Third-party action, pin to commit SHA!
         # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions

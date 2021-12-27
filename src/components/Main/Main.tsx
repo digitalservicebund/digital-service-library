@@ -16,8 +16,4 @@ const Main = (props: MainProps) => {
   );
 };
 
-export const MainWrapper = (props: MainProps) => {
-  return <div className="flex flex-1 flex-col h-full">{props.children}</div>;
-};
-
 export default Main;

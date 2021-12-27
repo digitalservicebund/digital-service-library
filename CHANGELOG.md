@@ -4,10 +4,12 @@
 
 Features:
 
+- atoms added:
+  - basic input type
 - Layout patterns added:
   - Layout
   - Navigation
-  - Main + MainWrapper
+  - Main
   - Footer
 - documentation improvements
 
