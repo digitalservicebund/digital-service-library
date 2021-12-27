@@ -6,6 +6,8 @@ Features:
 
 - atoms added:
   - basic input type
+  - basic label component
+  - compound LabeledInput component incorporating a label and an input
 - Layout patterns added:
   - Layout
   - Navigation
