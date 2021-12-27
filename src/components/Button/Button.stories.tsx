@@ -6,6 +6,7 @@ import Button from "./Button";
 export default {
   title: "Atoms/Button",
   component: Button,
+  argTypes: { onClick: { action: "clicked" } },
 } as ComponentMeta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
