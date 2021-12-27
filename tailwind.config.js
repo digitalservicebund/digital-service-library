@@ -2,10 +2,17 @@ module.exports = {
   content: ["./src/**/*.{html,js,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        "h-sm": { raw: "(min-height: 640px)" },
+        "h-md": { raw: "(min-height: 768px)" },
+        "h-lg": { raw: "(min-height: 1024px)" },
+        "h-xl": { raw: "(min-height: 1280px)" },
+        "h-2xl": { raw: "(min-height: 1536px)" },
+      },
       fontFamily: {
-        sans: ['BundesSansWeb', 'Calibri', 'Verdana', 'Arial', 'Helvetica', 'sans-serif'],
-        serif: ['BundesSerifWeb', 'Cambria', 'Georgia', '"Times New Roman"', 'serif'],
-        condensed: ['BundesSansCondWeb', 'Calibri', 'Verdana', 'Arial', 'Helvetica', 'sans-serif'],
+        sans: ["BundesSansWeb", "Calibri", "Verdana", "Arial", "Helvetica", "sans-serif"],
+        serif: ["BundesSerifWeb", "Cambria", "Georgia", "'Times New Roman'", "serif"],
+        condensed: ["BundesSansCondWeb", "Calibri", "Verdana", "Arial", "Helvetica", "sans-serif"],
       },
       colors: {
         blue: {
