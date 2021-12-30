@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.13
+
+Bugfixes:
+
+- import issue has been fixed
+
 ## 0.0.12
 
 Features:
