@@ -22,7 +22,7 @@ Basic.args = {
 Basic.parameters = {
   docs: {
     source: {
-      code: '<Input id="disabled-input" name="test-input" type="text" />',
+      code: '<Input id="example-input" name="example-input" type="text" />',
     },
   },
 };

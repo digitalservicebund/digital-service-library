@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.11 (unreleased)
+
+Features:
+
+- updated colors to match the new design language
+- Icons added
+
 ## 0.0.10
 
 Features:
