@@ -15,48 +15,46 @@ export interface ButtonProps {
    */
   disabled?: boolean;
   /**
-   * indicate the main action, one primary button at most in one section.
+   * indicate the main action, one primary button at most in one section
    */
   primary?: boolean;
   /**
-   * default - indicate a series of actions without priority.
+   * default - indicate a series of actions without priority
    */
   secondary?: boolean;
+  /**
+   * indicate a button with the lowest priority
+   */
+  tertiary?: boolean;
 }
 
 const Button = (props: ButtonProps) => {
-  const { primary, secondary } = props;
-  if (secondary === undefined || secondary) {
-    return (
-      <button
-        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-white outline outline-offset-0 outline-1 outline-blue-900 hover:bg-dustyYellow disabled:bg-grey-300 disabled:text-grey-700 focus:bg-yellow-800 text-blue-900 focus:text-black border-4 border-transparent focus:border-darkGreen active:bg-yellow-800"
-        role="button" // this is needed for accessibility
-        disabled={props.disabled}
-        onClick={props.onClick}
-      >
-        <div className="inline-flex items-center justify-center h-6">
-          <p className="text-lg font-bold leading-7 text-center">
-            {props.label}
-          </p>
-        </div>
-      </button>
-    );
-  } else if (primary) {
-    return (
-      <button
-        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-yellow-900 hover:bg-dustyYellow disabled:bg-grey-300 disabled:text-grey-700 focus:bg-yellow-800 text-black focus:text-black border-4 border-transparent focus:border-darkGreen active:bg-yellow-800"
-        role="button" // this is needed for accessibility
-        disabled={props.disabled}
-        onClick={props.onClick}
-      >
-        <div className="inline-flex items-center justify-center h-6">
-          <p className="text-lg font-bold leading-7 text-center">
-            {props.label}
-          </p>
-        </div>
-      </button>
-    );
+  const { primary, tertiary } = props;
+  let classNames =
+    "box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4";
+  if (primary) {
+    classNames +=
+      " bg-yellow-900 hover:bg-dustyYellow disabled:bg-darkGrey-300 disabled:text-darkGrey-700 focus:bg-yellow-800 text-black focus:text-black border-4 border-transparent focus:border-darkGreen active:bg-yellow-800";
+  } else if (tertiary) {
+    classNames +=
+      " bg-darkGrey-900 text-white hover:bg-dustyGrey disabled:bg-darkGrey-300 disabled:text-darkGrey-700 border-4 border-transparent focus:border-darkGreen active:bg-darkGrey-800";
+  } else {
+    // secondary == default
+    classNames +=
+      "bg-white text-blue-900 outline outline-offset-0 outline-1 outline-blue-900 hover:bg-blue-100  disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:outline-0 focus:bg-yellow-800 border-4 border-transparent focus:border-darkGreen active:bg-yellow-800";
   }
+  return (
+    <button
+      className={classNames}
+      role="button"
+      disabled={props.disabled}
+      onClick={props.onClick}
+    >
+      <div className="inline-flex items-center justify-center h-6">
+        <p className="text-lg font-bold leading-7 text-center">{props.label}</p>
+      </div>
+    </button>
+  );
 };
 
 export default Button;

@@ -4,5 +4,9 @@ module.exports = {
   moduleNameMapper: {
     ".(css|less|scss)$": "identity-obj-proxy",
   },
+  transform: {
+    "^.+\\.[t|j]sx?$": "babel-jest",
+    "^.+\\.svg$": "jest-transformer-svg",
+  },
   setupFiles: ["./enzyme.config.js"],
 };

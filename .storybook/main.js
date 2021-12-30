@@ -5,6 +5,7 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "storybook-addon-pseudo-states",
     {
       name: "@storybook/addon-docs",
       options: {

@@ -12,12 +12,28 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Basic = Template.bind({});
+export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Basic.args = {
+Primary.args = {
   label: "Weiter",
+  primary: true,
 };
-Basic.parameters = {
+Primary.parameters = {
+  docs: {
+    source: {
+      code: '<Button label="Weiter" primary={true} />',
+    },
+  },
+};
+
+export const PrimaryDisabled = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+PrimaryDisabled.args = {
+  label: "Weiter",
+  primary: true,
+  disabled: true,
+};
+PrimaryDisabled.parameters = {
   docs: {
     source: {
       code: '<Button label="Weiter" />',
@@ -25,13 +41,55 @@ Basic.parameters = {
   },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
+export const Secondary = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Secondary.args = {
+  label: "Weiter",
+};
+Secondary.parameters = {
+  docs: {
+    source: {
+      code: '<Button label="Weiter" />',
+    },
+  },
+};
+
+export const SecondaryDisabled = Template.bind({});
+SecondaryDisabled.args = {
   label: "Deaktiviert",
   disabled: true,
 };
 
-Disabled.parameters = {
+SecondaryDisabled.parameters = {
+  docs: {
+    source: {
+      code: '<Button label="Deaktiviert" disabled={true} />',
+    },
+  },
+};
+
+export const Tertiary = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Tertiary.args = {
+  label: "Weiter",
+  tertiary: true,
+};
+Tertiary.parameters = {
+  docs: {
+    source: {
+      code: '<Button label="Weiter" />',
+    },
+  },
+};
+
+export const TertiaryDisabled = Template.bind({});
+TertiaryDisabled.args = {
+  label: "Deaktiviert",
+  disabled: true,
+  tertiary: true,
+};
+
+TertiaryDisabled.parameters = {
   docs: {
     source: {
       code: '<Button label="Deaktiviert" disabled={true} />',

@@ -5,7 +5,8 @@
 Features:
 
 - updated colors to match the new design language
-- Icons added
+- updated the button style to match our new design guidelines
+- scalable Icons added
 
 ## 0.0.10
 

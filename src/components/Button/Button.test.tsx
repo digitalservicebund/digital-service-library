@@ -11,6 +11,12 @@ describe("Button", () => {
   test("renders the Button component - disabled", () => {
     render(<Button label="Hello world!" disabled={true} />);
   });
+  test("renders a primary Button component - disabled", () => {
+    render(<Button label="Hello world!" disabled={true} primary />);
+  });
+  test("renders a tertiary Button component - disabled", () => {
+    render(<Button label="Hello world!" disabled={true} tertiary />);
+  });
   test("renders the Button component with a click listener", () => {
     const onClick = jest.fn();
     const btn = shallow(
