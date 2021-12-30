@@ -8,6 +8,7 @@ Component Library for and by DigitalService4Germany
 
 [![Documentation](https://img.shields.io/badge/Documentation-blue.svg)](https://digitalservice4germany.github.io/digital-service-library/?path=/story/docs-readme--page)
 [![version](https://img.shields.io/npm/v/@digitalservice4germany/digital-service-library.svg)](https://www.npmjs.com/package/@digitalservice4germany/digital-service-library)
+[![codecov](https://codecov.io/gh/digitalservice4germany/digital-service-library/branch/main/graph/badge.svg?token=2FTXQ46IS0)](https://codecov.io/gh/digitalservice4germany/digital-service-library)
 [![Issues](https://img.shields.io/github/issues/digitalservice4germany/digital-service-library)](https://github.com/digitalservice4germany/digital-service-library/issues)
 [![MIT License](https://img.shields.io/npm/l/starwars-names.svg)](http://opensource.org/licenses/MIT)
 
