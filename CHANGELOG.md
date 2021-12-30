@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.17
+
+Bugfixes:
+
+- update version file format
+
 ## 0.0.16
 
 Bugfixes:
