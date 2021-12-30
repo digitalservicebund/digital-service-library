@@ -54,4 +54,8 @@ export default [
     input: "tailwind.config.js",
     output: [{ file: "dist/tailwind.config.js" }],
   },
+  {
+    input: "version.js",
+    output: [{ file: "dist/version.js" }],
+  },
 ];

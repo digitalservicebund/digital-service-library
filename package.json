@@ -32,6 +32,7 @@
   "module": "dist/esm/index.js",
   "files": [
     "dist",
+    "version.js",
     "tailwind.config.js"
   ],
   "types": "dist/index.d.ts",
