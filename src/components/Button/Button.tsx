@@ -30,31 +30,53 @@ export interface ButtonProps {
 
 const Button = (props: ButtonProps) => {
   const { primary, tertiary } = props;
-  let classNames =
-    "box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4";
   if (primary) {
-    classNames +=
-      " bg-yellow-900 hover:bg-dustyYellow disabled:bg-darkGrey-300 disabled:text-darkGrey-700 focus:bg-yellow-800 text-black focus:text-black border-4 border-transparent focus:border-darkGreen active:bg-yellow-800";
+    return (
+      <button
+        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-yellow-900 hover:bg-dustyYellow disabled:bg-darkGrey-300 disabled:text-darkGrey-700 focus:bg-yellow-800 text-black focus:text-black border-4 border-transparent focus:border-darkGreen active:bg-yellow-800"
+        role="button"
+        disabled={props.disabled}
+        onClick={props.onClick}
+      >
+        <div className="inline-flex items-center justify-center h-6">
+          <p className="text-lg font-bold leading-7 text-center">
+            {props.label}
+          </p>
+        </div>
+      </button>
+    );
   } else if (tertiary) {
-    classNames +=
-      " bg-darkGrey-900 text-white hover:bg-dustyGrey disabled:bg-darkGrey-300 disabled:text-darkGrey-700 border-4 border-transparent focus:border-darkGreen active:bg-darkGrey-800";
+    return (
+      <button
+        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-darkGrey-900 text-white hover:bg-dustyGrey disabled:bg-darkGrey-300 disabled:text-darkGrey-700 border-4 border-transparent focus:border-darkGreen active:bg-darkGrey-800"
+        role="button"
+        disabled={props.disabled}
+        onClick={props.onClick}
+      >
+        <div className="inline-flex items-center justify-center h-6">
+          <p className="text-lg font-bold leading-7 text-center">
+            {props.label}
+          </p>
+        </div>
+      </button>
+    );
   } else {
     // secondary == default
-    classNames +=
-      "bg-white text-blue-900 outline outline-offset-0 outline-1 outline-blue-900 hover:bg-blue-100  disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:outline-0 focus:bg-yellow-800 border-4 border-transparent focus:border-darkGreen active:bg-yellow-800";
+    return (
+      <button
+        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-white text-blue-900 outline outline-offset-0 outline-1 outline-blue-900 hover:bg-blue-100  disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:outline-0 focus:bg-yellow-800 border-4 border-transparent focus:border-darkGreen active:bg-yellow-800"
+        role="button"
+        disabled={props.disabled}
+        onClick={props.onClick}
+      >
+        <div className="inline-flex items-center justify-center h-6">
+          <p className="text-lg font-bold leading-7 text-center">
+            {props.label}
+          </p>
+        </div>
+      </button>
+    );
   }
-  return (
-    <button
-      className={classNames}
-      role="button"
-      disabled={props.disabled}
-      onClick={props.onClick}
-    >
-      <div className="inline-flex items-center justify-center h-6">
-        <p className="text-lg font-bold leading-7 text-center">{props.label}</p>
-      </div>
-    </button>
-  );
 };
 
 export default Button;

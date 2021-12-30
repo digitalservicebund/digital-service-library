@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.16
+
+Bugfixes:
+
+- rewrite button class to not use string modifications
+
 ## 0.0.15
 
 Tooling:
