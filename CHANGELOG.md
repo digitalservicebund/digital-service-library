@@ -8,6 +8,15 @@ Features:
 - updated the button style to match our new design guidelines
 - scalable Icons added
 
+Showcase:
+
+- added pseudo-class support to storybook documentation
+- a11y test for each story within the storybook documentation to catch/fix issues early on
+
+Tooling:
+
+- added codecov reporting to transparently show the testing state of this package
+
 ## 0.0.10
 
 Features:
