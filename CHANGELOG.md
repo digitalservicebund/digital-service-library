@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.0.15
+
+Tooling:
+
+- disable husky git hooks in CI
+
+## 0.0.14
+
+Tooling:
+
+- added a version identifier
+
 ## 0.0.13
 
 Bugfixes:
