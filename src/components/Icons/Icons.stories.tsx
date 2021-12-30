@@ -25,7 +25,7 @@ export default {
 } as ComponentMeta<typeof Icon>;
 
 const AllIconsTemplate: ComponentStory<typeof Icon> = (args) => (
-  <>
+  <div className="w-10">
     <Icon style={{ color: args.color }} />
     <ChevronRightIcon style={{ color: args.color }} />
     <ChevronDownIcon style={{ color: args.color }} />
@@ -42,7 +42,7 @@ const AllIconsTemplate: ComponentStory<typeof Icon> = (args) => (
     <CircleIcon style={{ color: args.color }} />
     <DownloadIcon style={{ color: args.color }} />
     <BulletIcon style={{ color: args.color }} />
-  </>
+  </div>
 );
 
 export const AllIcons = AllIconsTemplate.bind({});
@@ -51,7 +51,7 @@ AllIcons.parameters = {
   docs: {
     source: {
       code: `
-<div>
+<div className="w-10">
   <ChevronLeft />
   <ChevronRight />
   <ChevronDown />
@@ -75,7 +75,7 @@ AllIcons.parameters = {
 };
 
 const Template: ComponentStory<typeof Icon> = (args) => (
-  <Icon style={{ color: args.color }} />
+  <Icon className="h-10" style={{ color: args.color }} />
 );
 
 export const ChevronLeft = Template.bind({});
@@ -83,14 +83,14 @@ ChevronLeft.args = { color: "black" };
 ChevronLeft.parameters = {
   docs: {
     source: {
-      code: "<ChevronLeft />",
+      code: "<ChevronLeft className='h-10' />",
     },
   },
 };
 
 const ChevronRightTemplate: ComponentStory<typeof ChevronRightIcon> = (
   args
-) => <ChevronRightIcon style={{ color: args.color }} />;
+) => <ChevronRightIcon className="h-10" style={{ color: args.color }} />;
 
 export const ChevronRight = ChevronRightTemplate.bind({});
 ChevronRight.args = { color: "black" };
@@ -103,7 +103,7 @@ ChevronRight.parameters = {
 };
 
 const ChevronUpTemplate: ComponentStory<typeof ChevronUpIcon> = (args) => (
-  <ChevronUpIcon style={{ color: args.color }} />
+  <ChevronUpIcon className="h-10" style={{ color: args.color }} />
 );
 
 export const ChevronUp = ChevronUpTemplate.bind({});
@@ -113,13 +113,13 @@ ChevronUp.args = {
 ChevronUp.parameters = {
   docs: {
     source: {
-      code: "<ChevronUp />",
+      code: "<ChevronUp className='h-10' />",
     },
   },
 };
 
 const ChevronDownTemplate: ComponentStory<typeof ChevronDownIcon> = (args) => (
-  <ChevronDownIcon style={{ color: args.color }} />
+  <ChevronDownIcon className="h-10" style={{ color: args.color }} />
 );
 
 export const ChevronDown = ChevronDownTemplate.bind({});
@@ -129,13 +129,15 @@ ChevronDown.args = {
 ChevronDown.parameters = {
   docs: {
     source: {
-      code: "<ChevronDown />",
+      code: "<ChevronDown className='h-10' />",
     },
   },
 };
 
 const CloudTemplate: ComponentStory<typeof CloudIcon> = (args) => (
-  <CloudIcon style={{ color: args.color }} />
+  <div>
+    <CloudIcon className="h-20 w-20" style={{ color: args.color }} />
+  </div>
 );
 
 export const Cloud = CloudTemplate.bind({});
@@ -145,7 +147,7 @@ Cloud.args = {
 Cloud.parameters = {
   docs: {
     source: {
-      code: "<Cloud />",
+      code: `<Cloud className="h-20 w-20" />`,
     },
   },
 };
