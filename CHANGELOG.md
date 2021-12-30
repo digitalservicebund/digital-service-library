@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.11 (unreleased)
+## 0.0.11
 
 Features:
 
