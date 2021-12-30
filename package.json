@@ -26,7 +26,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "generate-version": "genversion --es6 --semi version.js",
-    "prepare": "husky install"
+    "prepare": "is-ci || husky install"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -71,6 +71,7 @@
     "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "install": "^0.13.0",
+    "is-ci": "^3.0.1",
     "jest": "^27.4.5",
     "jest-transformer-svg": "^1.0.2",
     "npm": "^8.3.0",
