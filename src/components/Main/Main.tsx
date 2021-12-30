@@ -10,7 +10,7 @@ export interface MainProps {
 
 const Main = (props: MainProps) => {
   return (
-    <div className="flex flex-1 items-center min-h-screen justify-center w-full bg-beige-100 m-0 p-2.5">
+    <div className="flex flex-1 items-center min-h-screen justify-center w-full bg-white m-0 p-2.5">
       {props.children}
     </div>
   );

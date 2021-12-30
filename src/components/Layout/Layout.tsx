@@ -19,24 +19,25 @@ export interface LayoutProps {
   footer: ReactNode;
 }
 
-const Layout = ({ children, footer, sidebarNavigation, topNavigation }: LayoutProps) => {
+const Layout = ({
+  children,
+  footer,
+  sidebarNavigation,
+  topNavigation,
+}: LayoutProps) => {
   return (
     <div className="flex items-stretch min-h-full">
-      <header className="w-[220px] flex-shrink-0 hidden lg:block">
-        <div className="h-full h-md:sticky h-md:top-0 h-md:h-screen">
+      <header className="w-[220px] flex-shrink-0 hidden lg:block ">
+        <div className="h-full h-md:sticky h-md:top-0 h-md:h-screen bg-grey-100">
           {sidebarNavigation}
         </div>
       </header>
       <div className="flex flex-col flex-grow">
-        <header className="flex-shrink-0 lg:hidden">
+        <header className="flex-shrink-0 lg:hidden bg-grey-100">
           {topNavigation}
         </header>
-        <main className="flex-grow">
-          {children}
-        </main>
-        <footer className="flex-shrink-0">
-          {footer}
-        </footer>
+        <main className="flex-grow">{children}</main>
+        <footer className="flex-shrink-0">{footer}</footer>
       </div>
     </div>
   );

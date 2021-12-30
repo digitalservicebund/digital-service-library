@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.19
+
+Features:
+
+- color scheme updated for navigation, content and footer
+
 ## 0.0.18
 
 Bugfixes:

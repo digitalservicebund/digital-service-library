@@ -10,12 +10,12 @@ export default {
 } as ComponentMeta<typeof Navigation>;
 
 const Template: ComponentStory<typeof Navigation> = (args) => (
-  <Layout>
+  <div>
     <Navigation>{args.children}</Navigation>
     <Main>
       <p>Hello</p>
     </Main>
-  </Layout>
+  </div>
 );
 
 export const Basic = Template.bind({});
