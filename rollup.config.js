@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
+import svg from "rollup-plugin-svg";
 import { terser } from "rollup-plugin-terser";
 
 const packageJson = require("./package.json");
@@ -26,6 +27,7 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
+      svg(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
         config: {

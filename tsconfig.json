@@ -107,5 +107,6 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "exclude": ["node_modules", "generator-storybook"]
+  "exclude": ["node_modules", "generator-storybook", "**/*.stories.tsx"],
+  "include": ["src/**/*", "custom.d.ts"]
 }
