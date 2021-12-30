@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.18
+
+Bugfixes:
+
+- Update hover and active state for default buttons
+
 ## 0.0.17
 
 Bugfixes:

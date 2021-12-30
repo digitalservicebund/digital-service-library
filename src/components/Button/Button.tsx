@@ -64,7 +64,7 @@ const Button = (props: ButtonProps) => {
     // secondary == default
     return (
       <button
-        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-white text-blue-900 outline outline-offset-0 outline-1 outline-blue-900 hover:bg-blue-100  disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:outline-0 focus:bg-yellow-800 border-4 border-transparent focus:border-darkGreen active:bg-yellow-800"
+        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4  bg-white text-blue-900 outline outline-offset-0 outline-1 outline-blue-900 hover:bg-blue-100  disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:outline-0 border-4 border-transparent focus:border-darkGreen active:bg-blue-50"
         role="button"
         disabled={props.disabled}
         onClick={props.onClick}
