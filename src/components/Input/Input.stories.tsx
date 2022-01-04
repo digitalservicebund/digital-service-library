@@ -31,8 +31,10 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   id: "disabled-text-input",
   name: "disabled-text-input",
-  type: "text",
-  disabled: true,
+  disabled: 123,
+  bla: "23",
+  className: "text-red",
+  type: "bla",
 };
 
 Disabled.parameters = {

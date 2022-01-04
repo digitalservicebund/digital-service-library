@@ -6,21 +6,34 @@ import Button from "./Button";
 
 describe("Button", () => {
   test("renders the Button component", () => {
-    render(<Button label="Hello world!" />);
+    render(<Button>Hello world!"</Button>);
   });
   test("renders the Button component - disabled", () => {
-    render(<Button label="Hello world!" disabled={true} />);
+    render(<Button disabled>Hello World!</Button>);
   });
-  test("renders a primary Button component - disabled", () => {
-    render(<Button label="Hello world!" disabled={true} primary />);
+  test("renders a secondary Button component - disabled", () => {
+    render(
+      <Button secondary disabled>
+        Hello World!
+      </Button>
+    );
   });
   test("renders a tertiary Button component - disabled", () => {
-    render(<Button label="Hello world!" disabled={true} tertiary />);
+    render(
+      <Button tertiary disabled>
+        Hello World!
+      </Button>
+    );
+  });
+  test("renders a link", () => {
+    render(<Button href="/">Hello World!</Button>);
   });
   test("renders the Button component with a click listener", () => {
     const onClick = jest.fn();
     const btn = shallow(
-      <Button label="Hello world!" disabled={true} onClick={onClick} />
+      <Button disabled onClick={onClick}>
+        Hello world!
+      </Button>
     );
     btn.find("button").simulate("click");
     expect(onClick).toHaveBeenCalled();

@@ -1,82 +1,65 @@
 import React from "react";
-import "../../index.css";
+import classNames from "classnames";
+import invariant from "tiny-invariant";
 
-export interface ButtonProps {
-  /**
-  The display content of the button
-  */
-  label: string;
-  /**
-  a click listener
-  */
-  onClick?: () => void;
-  /**
-   * State of the button
-   */
-  disabled?: boolean;
-  /**
-   * indicate the main action, one primary button at most in one section
-   */
-  primary?: boolean;
-  /**
-   * default - indicate a series of actions without priority
-   */
+interface VisualProps {
+  /** indicates an alternative to the primary action */
   secondary?: boolean;
-  /**
-   * indicate a button with the lowest priority
-   */
+  /** indicates a miscellaneous action */
   tertiary?: boolean;
+  /** small size */
+  small?: boolean;
+  /** tiny size */
+  tiny?: boolean;
 }
 
-const Button = (props: ButtonProps) => {
-  const { primary, tertiary } = props;
-  if (primary) {
-    return (
-      <button
-        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-yellow-900 hover:bg-dustyYellow disabled:bg-darkGrey-300 disabled:text-darkGrey-700 focus:bg-yellow-800 text-black focus:text-black border-4 border-transparent focus:border-darkGreen active:bg-yellow-800"
-        role="button"
-        disabled={props.disabled}
-        onClick={props.onClick}
-      >
-        <div className="inline-flex items-center justify-center h-6">
-          <p className="text-lg font-bold leading-7 text-center">
-            {props.label}
-          </p>
-        </div>
-      </button>
-    );
-  } else if (tertiary) {
-    return (
-      <button
-        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4 bg-darkGrey-900 text-white hover:bg-dustyGrey disabled:bg-darkGrey-300 disabled:text-darkGrey-700 border-4 border-transparent focus:border-darkGreen active:bg-darkGrey-800"
-        role="button"
-        disabled={props.disabled}
-        onClick={props.onClick}
-      >
-        <div className="inline-flex items-center justify-center h-6">
-          <p className="text-lg font-bold leading-7 text-center">
-            {props.label}
-          </p>
-        </div>
-      </button>
-    );
-  } else {
-    // secondary == default
-    return (
-      <button
-        className="box-border inline-flex flex-col items-center justify-center h-16 px-6 focus:pb-3 py-4  bg-white text-blue-900 outline outline-offset-0 outline-1 outline-blue-900 hover:bg-blue-100  disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:outline-0 border-4 border-transparent focus:border-darkGreen active:bg-blue-50"
-        role="button"
-        disabled={props.disabled}
-        onClick={props.onClick}
-      >
-        <div className="inline-flex items-center justify-center h-6">
-          <p className="text-lg font-bold leading-7 text-center">
-            {props.label}
-          </p>
-        </div>
-      </button>
-    );
-  }
-};
+export interface ButtonProps
+  extends React.ComponentPropsWithoutRef<"button">,
+    VisualProps {}
+
+export interface ButtonLinkProps
+  extends React.ComponentPropsWithoutRef<"a">,
+    VisualProps {}
+
+function Button(props: ButtonProps): JSX.Element;
+function Button(props: ButtonLinkProps): JSX.Element;
+function Button(props: any) {
+  const { secondary, tertiary, small, tiny, children, ...rest } = props;
+  const Component = props.href ? "a" : "button";
+
+  invariant(
+    !(secondary === true && tertiary === true),
+    "Button is both secondary and tertiary. Please choose one visual type."
+  );
+  invariant(
+    !(small === true && tiny === true),
+    "Button is both small and tiny. Please choose one size."
+  );
+
+  const commonClassNames =
+    "inline-block px-6 leading-[1.58] font-bold max-w-full break-words focus:outline focus:outline-4 focus:outline-darkGreen disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:cursor-not-allowed";
+
+  const className = classNames(
+    commonClassNames,
+    {
+      "text-black bg-yellow-900 hover:bg-dustyYellow focus:bg-yellow-800 active:bg-yellow-600":
+        !secondary && !tertiary,
+      "text-blue-900 bg-white shadow-[inset_0_0_0_0.0625rem_currentColor] hover:bg-blue-100 active:bg-blue-50 disabled:shadow-none":
+        secondary,
+      "text-white bg-darkGrey-900 hover:bg-dustyGrey active:bg-darkGrey-800":
+        tertiary,
+      "py-5 text-lg": !small && !tiny,
+      "py-3 text-base": small,
+      "py-2 text-sm": tiny,
+    },
+    props.className
+  );
+
+  return (
+    <Component {...rest} className={className}>
+      {children}
+    </Component>
+  );
+}
 
 export default Button;

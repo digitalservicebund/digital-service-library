@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../Input";
 import Label from "../Label";
+import Button from "../Button";
 import "../../index.css";
 
 enum InputType {

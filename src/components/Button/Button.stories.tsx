@@ -2,97 +2,74 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Button from "./Button";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Atoms/Button",
   component: Button,
-  argTypes: { onClick: { action: "clicked" } },
 } as ComponentMeta<typeof Button>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => (
+  <Button {...args}>{args.children || "Registrieren"}</Button>
+);
 
 export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  label: "Weiter",
-  primary: true,
+
+export const Small = Template.bind({});
+Small.args = {
+  small: true,
 };
-Primary.parameters = {
-  docs: {
-    source: {
-      code: '<Button label="Weiter" primary={true} />',
-    },
-  },
+
+export const Tiny = Template.bind({});
+Tiny.args = {
+  tiny: true,
 };
 
 export const PrimaryDisabled = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 PrimaryDisabled.args = {
-  label: "Weiter",
-  primary: true,
   disabled: true,
-};
-PrimaryDisabled.parameters = {
-  docs: {
-    source: {
-      code: '<Button label="Weiter" />',
-    },
-  },
 };
 
 export const Secondary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Secondary.args = {
-  label: "Weiter",
-};
-Secondary.parameters = {
-  docs: {
-    source: {
-      code: '<Button label="Weiter" />',
-    },
-  },
+  secondary: true,
 };
 
 export const SecondaryDisabled = Template.bind({});
 SecondaryDisabled.args = {
-  label: "Deaktiviert",
+  ...Secondary.args,
   disabled: true,
 };
 
-SecondaryDisabled.parameters = {
-  docs: {
-    source: {
-      code: '<Button label="Deaktiviert" disabled={true} />',
-    },
-  },
-};
-
 export const Tertiary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Tertiary.args = {
-  label: "Weiter",
   tertiary: true,
-};
-Tertiary.parameters = {
-  docs: {
-    source: {
-      code: '<Button label="Weiter" />',
-    },
-  },
 };
 
 export const TertiaryDisabled = Template.bind({});
 TertiaryDisabled.args = {
-  label: "Deaktiviert",
+  ...Tertiary.args,
   disabled: true,
-  tertiary: true,
 };
 
-TertiaryDisabled.parameters = {
-  docs: {
-    source: {
-      code: '<Button label="Deaktiviert" disabled={true} />',
-    },
-  },
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  className: "w-full",
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  href: "https://digitalservice.bund.de",
+};
+
+export const LongText = Template.bind({});
+LongText.storyName = "[Edge Case] Long Text";
+LongText.args = {
+  children:
+    "Der DigitalService4Germany entwickelt digitale Lösungen für und mit der Bundesverwaltung. Im Zentrum stehen die Bedürfnisse der Nutzerinnen und Nutzer. Unser Ziel: Dienstleistungen, die besser für alle funktionieren.",
+};
+
+export const LongWord = Template.bind({});
+LongWord.storyName = "[Edge Case] Long Word";
+LongWord.args = {
+  children:
+    "DerDigitalService4GermanyentwickeltdigitaleLösungenfürundmitderBundesverwaltung.ImZentrumstehendieBedürfnissederNutzerinnenundNutzer.UnserZiel:Dienstleistungen,diebesserfürallefunktionieren.",
 };
