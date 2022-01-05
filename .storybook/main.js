@@ -5,18 +5,17 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-docs",
     "storybook-addon-pseudo-states",
     "@storybook/addon-a11y",
-    // {
-    //   name: "@storybook/addon-docs",
-    //   options: {
-    //     configureJSX: true,
-    //     babelOptions: {},
-    //     sourceLoaderOptions: null,
-    //     transcludeMarkdown: true,
-    //   },
-    // },
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null,
+        transcludeMarkdown: true,
+      },
+    },
     {
       name: "@storybook/addon-postcss",
       options: {
