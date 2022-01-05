@@ -1,0 +1,74 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+import * as Icons from "./index"
+
+import BinIcon from "./Bin"
+import ExternalIcon from "./External"
+
+<Meta title="Atoms/Icons" />
+
+export const AllIconsTemplate = (args) => {
+  return Object.entries(Icons).map(([name, Component]) => (<div className="flex flex-col items-center"><Component className="w-8 m-2" />{name}</div>));
+};
+
+export const Template = (args) => {
+  const { Component, ...rest } = args;
+  return <Component {...rest} />;
+};
+
+# Icons
+
+[Source code](https://github.com/digitalservice4germany/digital-service-library/tree/main/src/components/Icons) | [Figma](https://www.figma.com/file/49Gxm2IajuwbGhj37zu9x0/Angie?node-id=17%3A896)
+
+Icons are SVG-based. You can pass all properties to an icon which you would normally pass to a `<svg>`.
+
+```
+import PencilIcon from "@digitalservice4germany/digital-service-library";
+
+<PencilIcon className="w-8 fill-red-500" />
+```
+
+<Canvas>
+  <Story
+    decorators={[
+      (Story) => (
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-8">
+          {Story()}
+        </div>
+      ),
+    ]}
+    name="Overview"
+    args={{
+    }}>
+    {AllIconsTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Color
+
+Color of icon is defined as `currentColor` ([learn more](https://css-tricks.com/currentcolor/)). In most cases this is probably what you want. In case you need to specifiy the icon color, use [the `fill-xy` classes from TailwindCSS](https://tailwindcss.com/docs/fill#setting-the-fill-color).
+
+<Canvas>
+  <Story
+    name="Icon Color Example"
+    args={{
+      Component: BinIcon,
+      className: "w-16 fill-blue-500"
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Size
+
+By default icons scale to container size. Please size the container accordingly or use TailwindCSS classes, e.g. `w-8`.
+
+<Canvas>
+  <Story
+    name="Icon Size Example"
+    args={{
+      Component: ExternalIcon
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

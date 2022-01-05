@@ -25,6 +25,7 @@
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build-icons": "svgr --ignore-existing --typescript --out-dir src/components/Icons/ assets/icons/",
     "generate-version": "genversion version.js",
     "prepare": "is-ci || husky install"
   },
@@ -56,6 +57,7 @@
     "@storybook/builder-webpack5": "^6.4.9",
     "@storybook/manager-webpack5": "^6.4.9",
     "@storybook/react": "^6.4.9",
+    "@svgr/cli": "^6.1.2",
     "@svgr/webpack": "^6.1.2",
     "@testing-library/react": "^12.1.2",
     "@types/enzyme": "^3.10.10",

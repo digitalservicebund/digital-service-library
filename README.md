@@ -54,6 +54,10 @@ import { Button } from "@digitalservice4germany/digital-service-library";
 
 ## Development
 
+### Icons
+
+Icon components are semi-automatically created from `.svg` file in `assets/icons`. Put the svg file there and run `npm run build-icons` to create components in `src/components/Icons`. Adjust the names in `src/components/Icons/index.tsx`
+
 ### Yeoman Generator
 
 Basic scaffolding tool to create a component skeleton. Setup:
