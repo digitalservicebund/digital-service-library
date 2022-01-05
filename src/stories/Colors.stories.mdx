@@ -1,0 +1,26 @@
+import { Meta } from "@storybook/addon-docs";
+import config from "../../tailwind.config.js";
+
+<Meta title="Token/Colors" />
+
+export const ColorPalette = () => {
+  function renderColor(name, color) {
+    return (<div className="w-32 h-32" style={{ backgroundColor: color }}><span style={{ backgroundColor: "white" }}>{name}</span></div>);
+  }
+  function renderRow(name, color) {
+    return (<div className="flex flex-row-reverse">{Object.entries(color).map(([k,v]) => renderColor(`${name}-${k}`, v))}</div>);
+  }
+  const colors = config.theme.extend.colors;
+  const mapped = Object.entries(colors).map(([name, color]) => (typeof color === "string" ? renderColor(name, color) : <div>{renderRow(name, color)}</div>));
+  return (
+    <div>
+      {mapped}
+    </div>
+  );
+};
+
+# Colors
+
+[Figma](https://www.figma.com/file/49Gxm2IajuwbGhj37zu9x0/Angie?node-id=70%3A521)
+
+<ColorPalette />
