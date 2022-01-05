@@ -12,67 +12,66 @@ Component Library for and by DigitalService4Germany
 [![Issues](https://img.shields.io/github/issues/digitalservice4germany/digital-service-library)](https://github.com/digitalservice4germany/digital-service-library/issues)
 [![MIT License](https://img.shields.io/npm/l/starwars-names.svg)](http://opensource.org/licenses/MIT)
 
+## Requirements
+
+* React
+* TailwindCSS
+
 ## Installation
 
-```
+```bash
 npm install --save @digitalservice4germany/digital-service-library
+```
+
+### Configure TailwindCSS
+
+The library expects an existing TailwindCSS setup in your project. Please change your `tailwind.config.js` in two places.
+
+1. add the preset `require("@digitalservice4germany/digital-service-library").TailwindConfig`
+2. add the path to the library's components `"./node_modules/@digitalservice4germany/digital-service-library/dist/esm/index.js"` to your array of content paths
+
+Afterwards your config might look like this:
+
+```js
+module.exports = {
+  presets: [
+    require("@digitalservice4germany/digital-service-library").TailwindConfig,
+  ],
+  content: [
+    "./app/**/*.{ts,tsx}",
+    "./node_modules/@digitalservice4germany/digital-service-library/dist/esm/index.js",
+  ],
+};
 ```
 
 ## Usage
 
-### React
-
-```js
-import { Button } from "@digitalservice4germany/digital-service-library";
-// it is enough to add the css file only once in your app.jsx
-import "@digitalservice4germany/digital-service-library/index.css";
-```
-
-### Remix
-
-You can either use your own tailwind configuration or use the one we ship with the component library.
-
-Just add the css in your root.tsx file:
-
-```js
-import type { LinksFunction } from "remix";
-
-export const links: LinksFunction = () => {
-  return [
-    {
-      rel: "stylesheet",
-      href: "https://unpkg.com/@digitalservice4germany/digital-service-library@latest/dist/cjs/index.css",
-    },
-  ];
-};
-```
-
-Then you can use the styled components as usual in your code.
-
-```js
+```tsx
 import { Button } from "@digitalservice4germany/digital-service-library";
 
-<Button label="Hello Button" />;
+<Button secondary small>Hello button!</Button>
 ```
 
-## Yeoman Generator
+## Development
+
+### Yeoman Generator
 
 Basic scaffolding tool to create a component skeleton. Setup:
 
-```
-  cd generator-storybook
-  npm install
-  sudo npm link
+```bash
+cd generator-storybook
+npm install
+sudo npm link
 ```
 
 If neccessary install `yo`:
 
-```
-  sudo npm install -g yo
+```bash
+sudo npm install -g yo
 ```
 
 Run the generator:
 
-```
-  yo storybook:component ComponentName
+```bash
+yo storybook:component ComponentName
 ```
