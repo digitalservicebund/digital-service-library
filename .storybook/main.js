@@ -5,7 +5,9 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "storybook-addon-pseudo-states",
+    // don't use, let the app hang all the time
+    // known problem with Tailwind
+    // "storybook-addon-pseudo-states",
     "@storybook/addon-a11y",
     {
       name: "@storybook/addon-docs",
