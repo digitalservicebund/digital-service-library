@@ -1,0 +1,22 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import <%= name %> from "./<%= name %>";
+
+<Meta title="Atoms/<%= name %>" component={<%= name %>} />
+
+export const Template = (args) => <<%= name %> {...args} />;
+
+# <%= name %>
+
+[Source code](https://github.com/digitalservice4germany/digital-service-library/tree/main/src/components/<%= name %>) | [Figma]()
+
+
+<ArgsTable of={<%= name %>} />
+
+<Canvas>
+  <Story
+    name="Example"
+    args={{
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
