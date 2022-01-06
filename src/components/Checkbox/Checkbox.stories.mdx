@@ -1,0 +1,58 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import Checkbox from "./Checkbox";
+
+<Meta title="Atoms/Checkbox" component={Checkbox} />
+
+export const Template = (args) => <Checkbox {...args} />;
+
+# Checkbox
+
+**NOT FINAL DESIGN!!!**
+
+[Source code](https://github.com/digitalservice4germany/digital-service-library/tree/main/src/components/Checkbox) | [Figma]()
+
+
+<ArgsTable of={Checkbox} />
+
+<Canvas>
+  <Story
+    name="Example"
+    args={{
+      children: <p>Label text</p>
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Checkbox error"
+    args={{
+      children: <p>Label text</p>,
+      error: true
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Example with more props"
+    args={{
+      children: <p>Label text</p>,
+      className: "mb-4",
+      id: "example-id"
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Long text"
+    args={{
+      children: <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
