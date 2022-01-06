@@ -23,8 +23,8 @@ module.exports = class extends Generator {
     );
 
     this.fs.copyTpl(
-      this.templatePath('Component.stories.tsx'),
-      this.destinationPath(`src/components/${name}/${name}.stories.tsx`),
+      this.templatePath('Component.stories.mdx'),
+      this.destinationPath(`src/components/${name}/${name}.stories.mdx`),
       { name }
     );
 
