@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 import invariant from "tiny-invariant";
 
@@ -11,6 +11,8 @@ interface VisualProps {
   small?: boolean;
   /** tiny size */
   tiny?: boolean;
+  /** icon component */
+  icon?: ReactNode;
 }
 
 export interface ButtonProps
@@ -24,7 +26,7 @@ export interface ButtonLinkProps
 function Button(props: ButtonProps): JSX.Element;
 function Button(props: ButtonLinkProps): JSX.Element;
 function Button(props: any) {
-  const { secondary, tertiary, small, tiny, children, ...rest } = props;
+  const { secondary, tertiary, small, tiny, children, icon, ...rest } = props;
   const Component = props.href ? "a" : "button";
 
   invariant(
@@ -37,7 +39,7 @@ function Button(props: any) {
   );
 
   const commonClassNames =
-    "inline-block px-6 leading-[1.58] font-bold max-w-full break-words focus:outline focus:outline-4 focus:outline-darkGreen disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:cursor-not-allowed";
+    "inline-flex items-center px-6 leading-normal font-bold max-w-full focus:outline focus:outline-4 focus:outline-darkGreen disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:cursor-not-allowed";
 
   const className = classNames(
     commonClassNames,
@@ -48,16 +50,31 @@ function Button(props: any) {
         secondary,
       "text-white bg-darkGrey-900 hover:bg-dustyGrey active:bg-darkGrey-800":
         tertiary,
-      "py-5 text-lg": !small && !tiny,
-      "py-3 text-base": small,
-      "py-2 text-sm": tiny,
+      "py-3.5 text-lg": !small && !tiny,
+      "py-2 text-base": small,
+      "py-1 text-sm": tiny,
+      "pl-3": icon && !small && !tiny,
+      "pl-4": icon && (small || tiny),
+      "pr-3": icon && !children && !small && !tiny,
+      "pr-4": icon && !children && (small || tiny),
     },
     props.className
   );
 
+  const iconClassName = classNames("flex-shrink-0", {
+    "mr-2": children,
+    "w-9": !small && !tiny,
+    "w-6": small || tiny,
+  });
+
   return (
     <Component {...rest} className={className}>
-      {children}
+      {icon ? <div className={iconClassName}>{icon}</div> : ""}
+      {children ? (
+        <div className="py-1 min-w-0 break-words">{children}</div>
+      ) : (
+        ""
+      )}
     </Component>
   );
 }

@@ -1,6 +1,7 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 
 import Button from './Button';
+import CircleIcon from '../Icons/Circle';
 
 <Meta title="Atoms/Button" component={Button} />
 
@@ -65,6 +66,14 @@ The component is overloaded. If you pass a `href` property and optionally other 
     }}>
     {Template.bind({})}
   </Story>
+  <Story
+    name="Primary with Icon"
+    args={{
+      children: "Registrieren",
+      icon: <CircleIcon />
+    }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ### Secondary button (`<Button secondary>`)
@@ -84,6 +93,15 @@ The component is overloaded. If you pass a `href` property and optionally other 
       secondary: true,
       disabled: true,
       children: "Registrieren"
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Secondary with Icon"
+    args={{
+      secondary: true,
+      children: "Registrieren",
+      icon: <CircleIcon />
     }}>
     {Template.bind({})}
   </Story>
@@ -109,6 +127,15 @@ The component is overloaded. If you pass a `href` property and optionally other 
     }}>
     {Template.bind({})}
   </Story>
+  <Story
+    name="Tertitary with Icon"
+    args={{
+      tertiary: true,
+      children: "Registrieren",
+      icon: <CircleIcon />
+    }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 
@@ -129,6 +156,15 @@ The component is overloaded. If you pass a `href` property and optionally other 
       small: true,
       disabled: true,
       children: "Registrieren"
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Primary Small with icon"
+    args={{
+      small: true,
+      children: "Registrieren",
+      icon: <CircleIcon />
     }}>
     {Template.bind({})}
   </Story>
@@ -203,6 +239,15 @@ The component is overloaded. If you pass a `href` property and optionally other 
     }}>
     {Template.bind({})}
   </Story>
+  <Story
+    name="Primary Tiny with icon"
+    args={{
+      tiny: true,
+      children: "Registrieren",
+      icon: <CircleIcon />
+    }}>
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ### Secondary Tiny button (`<Button secondary tiny>`)
@@ -253,6 +298,36 @@ The component is overloaded. If you pass a `href` property and optionally other 
   </Story>
 </Canvas>
 
+## Icon only
+
+Do we need this?
+
+<Canvas>
+  <Story
+    name="Primary icon only"
+    args={{
+      icon: <CircleIcon />,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Primary small icon only"
+    args={{
+      small: true,
+      icon: <CircleIcon />,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Primary tiny icon only"
+    args={{
+      tiny: true,
+      icon: <CircleIcon />,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ## Edge cases
 
 ### Long text
@@ -277,6 +352,14 @@ Some German words are really long and might not fit in one line on a small devic
   <Story
     name="Long word"
     args={{
+      children: "DerDigitalService4GermanyentwickeltdigitaleLösungenfürundmitderBundesverwaltung.ImZentrumstehendieBedürfnissederNutzerinnenundNutzer.UnserZiel:Dienstleistungen,diebesserfürallefunktionieren."
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Long word and icon"
+    args={{
+      icon: <CircleIcon />,
       children: "DerDigitalService4GermanyentwickeltdigitaleLösungenfürundmitderBundesverwaltung.ImZentrumstehendieBedürfnissederNutzerinnenundNutzer.UnserZiel:Dienstleistungen,diebesserfürallefunktionieren."
     }}>
     {Template.bind({})}
