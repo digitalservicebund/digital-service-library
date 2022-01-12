@@ -1,0 +1,89 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
+
+<Meta title="Token/Typography" />
+
+export const Template = (args) => (
+  <div className={args.className}>
+    <h1>Heading 1 - Lorem ipsum</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <strong>voluptate velit esse cillum dolore</strong> eu fugiat nulla pariatur.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <strong>voluptate velit esse cillum dolore</strong> eu fugiat nulla pariatur.</p>
+    <h2>Heading 2 - Lorem ipsum</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <strong>voluptate velit esse cillum dolore</strong> eu fugiat nulla pariatur.</p>
+    <h3>Heading 3 - Lorem ipsum</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <strong>voluptate velit esse cillum dolore</strong> eu fugiat nulla pariatur.</p>
+    <h4>Heading 4 - Lorem ipsum</h4>
+    <ul>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+    </ul>
+    <ol>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+    </ol>
+  </div>
+);
+
+# Typography
+
+[Figma](https://www.figma.com/file/49Gxm2IajuwbGhj37zu9x0/Angie?node-id=70%3A521)
+
+
+## prose-sm
+
+<Canvas>
+  <Story
+    name="prose-sm"
+    args={{
+      className: "prose prose-sm"
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## prose-base
+
+<Canvas>
+  <Story
+    name="prose-base"
+    args={{
+      className: "prose prose-base"
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## prose-lg
+
+<Canvas>
+  <Story
+    name="prose-lg"
+    args={{
+      className: "prose prose-lg"
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## prose-xl
+
+<Canvas>
+  <Story
+    name="prose-xl"
+    args={{
+      className: "prose prose-xl"
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## prose-2xl
+
+<Canvas>
+  <Story
+    name="prose-2xl"
+    args={{
+      className: "prose prose-2xl"
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

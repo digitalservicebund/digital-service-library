@@ -59,6 +59,7 @@
     "@storybook/react": "^6.4.9",
     "@svgr/cli": "^6.1.2",
     "@svgr/webpack": "^6.1.2",
+    "@tailwindcss/typography": "^0.5.0",
     "@testing-library/react": "^12.1.2",
     "@types/enzyme": "^3.10.10",
     "@types/jest": "^27.0.3",

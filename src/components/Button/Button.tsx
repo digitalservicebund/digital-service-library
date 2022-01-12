@@ -13,6 +13,7 @@ interface VisualProps {
   tiny?: boolean;
   /** icon component */
   icon?: ReactNode;
+  as?: ReactNode;
 }
 
 export interface ButtonProps
@@ -26,8 +27,9 @@ export interface ButtonLinkProps
 function Button(props: ButtonProps): JSX.Element;
 function Button(props: ButtonLinkProps): JSX.Element;
 function Button(props: any) {
-  const { secondary, tertiary, small, tiny, children, icon, ...rest } = props;
-  const Component = props.href ? "a" : "button";
+  const { secondary, tertiary, small, tiny, children, icon, as, ...rest } =
+    props;
+  const Component = as ? as : props.href ? "a" : "button";
 
   invariant(
     !(secondary === true && tertiary === true),

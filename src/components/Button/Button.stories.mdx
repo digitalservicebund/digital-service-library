@@ -328,6 +328,23 @@ Do we need this?
   </Story>
 </Canvas>
 
+## As
+
+export const SomeButton = (props) => {
+  return <a href="#submit" {...props}>{props.children} </a>;
+}
+
+<Canvas>
+  <Story
+    name="As"
+    args={{
+      children: "button",
+      as: SomeButton
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ## Edge cases
 
 ### Long text
