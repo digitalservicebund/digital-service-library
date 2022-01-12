@@ -1,21 +1,23 @@
 import React from "react";
-import "../../index.css";
+import classNames from "classnames";
 
-export interface LabelProps {
-  /**
-  the intended id of the input
-  */
-  for: string;
-  /**
-  The label to be shown
-  */
-  children: string;
+export interface LabelProps extends React.ComponentPropsWithoutRef<"label"> {
+  /** label for disabled inputs */
+  disabled?: boolean;
 }
 
 const Label = (props: LabelProps) => {
+  const { disabled, children, className, ...rest } = props;
+
+  const labelClassName = classNames(
+    "text-black text-base leading-tight mb-0.5",
+    { "text-darkGrey-800": disabled },
+    className
+  );
+
   return (
-    <label htmlFor={props.for} className="text-lg font-bold">
-      {props.children}
+    <label className={labelClassName} {...rest}>
+      {children}
     </label>
   );
 };

@@ -5,6 +5,6 @@ import Label from "./Label";
 
 describe("Label", () => {
   test("renders the Label component", () => {
-    render(<Label for="test-text-input">Test Label</Label>);
+    render(<Label htmlFor="test-text-input">Test Label</Label>);
   });
 });
