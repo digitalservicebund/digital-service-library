@@ -5,6 +5,11 @@
 Features:
 
 - color scheme updated for navigation, content and footer
+- update several components
+
+Tooling:
+
+- use mdx instead of tsx format for stories
 
 ## 0.0.18
 
