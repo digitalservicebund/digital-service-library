@@ -8,3 +8,9 @@ describe("Checkbox", () => {
     render(<Checkbox />);
   });
 });
+
+describe("Checkbox with error", () => {
+  test("renders the Checkbox component", () => {
+    render(<Checkbox error={true} />);
+  });
+});
