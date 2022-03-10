@@ -13,14 +13,14 @@ describe("Button", () => {
   });
   test("renders a secondary Button component - disabled", () => {
     render(
-      <Button secondary disabled>
+      <Button look="secondary" disabled>
         Hello World!
       </Button>
     );
   });
   test("renders a tertiary Button component - disabled", () => {
     render(
-      <Button tertiary disabled>
+      <Button look="tertiary" disabled>
         Hello World!
       </Button>
     );
@@ -35,7 +35,7 @@ describe("Button", () => {
         Hello world!
       </Button>
     );
-    btn.find("button").simulate("click");
+    btn.simulate("click");
     expect(onClick).toHaveBeenCalled();
   });
 });

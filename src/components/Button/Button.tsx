@@ -1,18 +1,47 @@
 import React, { ReactNode } from "react";
-import classNames from "classnames";
-import invariant from "tiny-invariant";
+import { styled } from "../../../stitches.config";
+import {
+  colorBackgroundButtonPrimaryDefault,
+  colorBackgroundButtonPrimaryHover,
+  colorBackgroundButtonPrimaryFocus,
+  colorBackgroundButtonPrimaryActive,
+  colorBackgroundButtonPrimaryDisabled,
+  colorTextButtonPrimaryDefault,
+  colorTextButtonPrimaryActive,
+  colorTextButtonPrimaryDisabled,
+  colorBackgroundButtonSecondaryDefault,
+  colorBackgroundButtonSecondaryHover,
+  colorBackgroundButtonSecondaryFocus,
+  colorBackgroundButtonSecondaryActive,
+  colorBackgroundButtonSecondaryDisabled,
+  colorTextButtonSecondaryDefault,
+  colorTextButtonSecondaryDisabled,
+  colorBackgroundButtonTertiaryDefault,
+  colorBackgroundButtonTertiaryHover,
+  colorBackgroundButtonTertiaryFocus,
+  colorBackgroundButtonTertiaryActive,
+  colorBackgroundButtonTertiaryDisabled,
+  colorBorderButtonTertiaryDefault,
+  colorBorderButtonTertiaryHover,
+  colorBorderButtonTertiaryFocus,
+  colorBorderButtonTertiaryActive,
+  colorBorderButtonTertiaryDisabled,
+  colorTextButtonTertiaryDefault,
+  colorTextButtonTertiaryDisabled,
+  colorBorderButtonGhostDefault,
+  colorBorderButtonGhostHover,
+  colorBorderButtonGhostFocus,
+  colorBorderButtonGhostActive,
+  colorBorderButtonGhostDisabled,
+  colorTextButtonGhostDefault,
+  colorTextButtonGhostDisabled,
+} from "@digitalservice4germany/style-dictionary";
 
 interface VisualProps {
-  /** indicates an alternative to the primary action */
-  secondary?: boolean;
-  /** indicates a miscellaneous action */
-  tertiary?: boolean;
-  /** small size */
-  small?: boolean;
-  /** tiny size */
-  tiny?: boolean;
-  /** icon component */
+  look?: "primary" | "secondary" | "tertiary" | "ghost";
+  size?: "large" | "medium" | "small";
   icon?: ReactNode;
+  iconRight?: ReactNode;
   as?: ReactNode;
 }
 
@@ -27,56 +56,171 @@ export interface ButtonLinkProps
 function Button(props: ButtonProps): JSX.Element;
 function Button(props: ButtonLinkProps): JSX.Element;
 function Button(props: any) {
-  const { secondary, tertiary, small, tiny, children, icon, as, ...rest } =
-    props;
-  const Component = as ? as : props.href ? "a" : "button";
+  const {
+    look = "primary",
+    size = "large",
+    children,
+    icon,
+    iconRight,
+    as,
+    ...rest
+  } = props;
 
-  invariant(
-    !(secondary === true && tertiary === true),
-    "Button is both secondary and tertiary. Please choose one visual type."
-  );
-  invariant(
-    !(small === true && tiny === true),
-    "Button is both small and tiny. Please choose one size."
-  );
+  const iconLeft = children && icon;
+  const iconAlone = !children && icon;
 
-  const commonClassNames =
-    "inline-flex items-center px-6 leading-normal font-bold max-w-full focus:outline focus:outline-4 focus:outline-darkGreen disabled:bg-darkGrey-300 disabled:text-darkGrey-700 disabled:cursor-not-allowed";
+  const Component = styled(as ? as : props.href ? "a" : "button", {
+    // base styles
+    display: "inline-flex",
+    alignItems: "center",
+    maxWidth: "100%",
 
-  const className = classNames(
-    commonClassNames,
-    {
-      "text-black bg-yellow-900 hover:bg-dustyYellow focus:bg-yellow-800 active:bg-yellow-600":
-        !secondary && !tertiary,
-      "text-blue-900 bg-white shadow-[inset_0_0_0_0.0625rem_currentColor] hover:bg-blue-100 active:bg-blue-50 disabled:shadow-none":
-        secondary,
-      "text-white bg-darkGrey-900 hover:bg-dustyGrey active:bg-darkGrey-800":
-        tertiary,
-      "py-3.5 text-lg": !small && !tiny,
-      "py-2 text-base": small,
-      "py-1 text-sm": tiny,
-      "pl-3": icon && !small && !tiny,
-      "pl-4": icon && (small || tiny),
-      "pr-3": icon && !children && !small && !tiny,
-      "pr-4": icon && !children && (small || tiny),
+    // focus outline is the same for all looks and sizes
+    "&:focus": {
+      outlineOffset: "4px",
+      outlineWidth: "4px",
+      outlineColor: "$blue800",
+      outlineStyle: "solid",
     },
-    props.className
-  );
+    "&[disabled]": {
+      cursor: "not-allowed",
+    },
+    variants: {
+      look: {
+        primary: {
+          backgroundColor: colorBackgroundButtonPrimaryDefault,
+          color: colorTextButtonPrimaryDefault,
+          "&:hover": {
+            backgroundColor: colorBackgroundButtonPrimaryHover,
+          },
+          "&:focus": {
+            backgroundColor: colorBackgroundButtonPrimaryFocus,
+          },
+          "&:active": {
+            backgroundColor: colorBackgroundButtonPrimaryActive,
+            color: colorTextButtonPrimaryActive,
+          },
+          "&[disabled]": {
+            backgroundColor: colorBackgroundButtonPrimaryDisabled,
+            color: colorTextButtonPrimaryDisabled,
+          },
+        },
+        secondary: {
+          backgroundColor: colorBackgroundButtonSecondaryDefault,
+          color: colorTextButtonSecondaryDefault,
+          "&:hover": {
+            backgroundColor: colorBackgroundButtonSecondaryHover,
+          },
+          "&:focus": {
+            backgroundColor: colorBackgroundButtonSecondaryFocus,
+          },
+          "&:active": {
+            backgroundColor: colorBackgroundButtonSecondaryActive,
+          },
+          "&[disabled]": {
+            backgroundColor: colorBackgroundButtonSecondaryDisabled,
+            color: colorTextButtonSecondaryDisabled,
+          },
+        },
+        tertiary: {
+          backgroundColor: colorBackgroundButtonTertiaryDefault,
+          boxShadow: `inset 0 0 0 2px ${colorBorderButtonTertiaryDefault}`,
+          color: colorTextButtonTertiaryDefault,
+          "&:hover": {
+            backgroundColor: colorBackgroundButtonTertiaryHover,
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonTertiaryHover}`,
+          },
+          "&:focus": {
+            backgroundColor: colorBackgroundButtonTertiaryFocus,
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonTertiaryFocus}`,
+          },
+          "&:active": {
+            backgroundColor: colorBackgroundButtonTertiaryActive,
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonTertiaryActive}`,
+          },
+          "&[disabled]": {
+            backgroundColor: colorBackgroundButtonTertiaryDisabled,
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonTertiaryDisabled}`,
+            color: colorTextButtonTertiaryDisabled,
+          },
+        },
+        ghost: {
+          backgroundColor: "transparent",
+          boxShadow: `inset 0 0 0 2px ${colorBorderButtonGhostDefault}`,
+          color: colorTextButtonGhostDefault,
+          "&:hover": {
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonGhostHover}`,
+          },
+          "&:focus": {
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonGhostFocus}`,
+          },
+          "&:active": {
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonGhostActive}`,
+          },
+          "&[disabled]": {
+            boxShadow: `inset 0 0 0 2px ${colorBorderButtonGhostDisabled}`,
+            color: colorTextButtonGhostDisabled,
+          },
+        },
+      },
+      size: {
+        large: {
+          fontSize: "18px",
+          lineHeight: "24px",
+          fontWeight: "bold",
+          padding: iconAlone ? "17px" : "17px 24px",
+        },
+        medium: {
+          fontSize: "16px",
+          lineHeight: "22px",
+          fontWeight: "bold",
+          padding: iconAlone ? "14px" : "11px 24px",
+        },
+        small: {
+          fontSize: "16px",
+          lineHeight: "22px",
+          fontWeight: "bold",
+          padding: iconAlone ? "10px" : "7px 24px",
+        },
+      },
+    },
+  });
 
-  const iconClassName = classNames("flex-shrink-0", {
-    "mr-2": children,
-    "w-9": !small && !tiny,
-    "w-6": small || tiny,
+  const InnerText = styled("div", {
+    minWidth: 0,
+    wordWrap: "break-word",
+    padding: "3px 0",
+  });
+
+  const IconWrapper = styled("div", {
+    flexShrink: 0,
+    variants: {
+      size: {
+        large: {
+          width: "30px",
+          marginLeft: iconAlone ? 0 : iconLeft ? "3px" : "12px",
+          marginRight: iconAlone ? 0 : iconRight ? "3px" : "12px",
+        },
+        medium: {
+          width: "20px",
+          marginLeft: iconAlone ? 0 : iconLeft ? "2px" : "10px",
+          marginRight: iconAlone ? 0 : iconRight ? "2px" : "10px",
+        },
+        small: {
+          width: "20px",
+          marginLeft: iconAlone ? 0 : iconLeft ? "2px" : "10px",
+          marginRight: iconAlone ? 0 : iconRight ? "2px" : "10px",
+        },
+      },
+    },
   });
 
   return (
-    <Component {...rest} className={className}>
-      {icon ? <div className={iconClassName}>{icon}</div> : ""}
-      {children ? (
-        <div className="py-1 min-w-0 break-words">{children}</div>
-      ) : (
-        ""
-      )}
+    <Component {...{ look, size }} {...rest}>
+      {iconLeft ? <IconWrapper {...{ size }}>{iconLeft}</IconWrapper> : ""}
+      {children ? <InnerText>{children}</InnerText> : ""}
+      {iconAlone ? <IconWrapper {...{ size }}>{iconAlone}</IconWrapper> : ""}
+      {iconRight ? <IconWrapper {...{ size }}>{iconRight}</IconWrapper> : ""}
     </Component>
   );
 }
